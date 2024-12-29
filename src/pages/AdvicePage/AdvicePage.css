@@ -1,0 +1,15 @@
+.displayadvice {
+  padding: 50px 100px;
+}
+.displayadvice h2 {
+  text-align: center;
+}
+.advice {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+@media screen and (max-width: 980px) {
+  .displayadvice {
+    padding: 50px;
+  }
+}

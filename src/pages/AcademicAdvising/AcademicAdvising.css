@@ -1,0 +1,209 @@
+/* AcademicAdvising.css */
+:root {
+  --primary-color: #3a4a6b;
+  --secondary-color: #e8f0fe;
+  --accent-color: #4a90e2;
+  --background-color: #f7f8fa;
+  --text-color: #333;
+  --button-color: #4a90e2;
+  --error-color: #f44336;
+  --success-color: #4caf50;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.AcademicAdviseBody {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.5s ease-out;
+}
+
+.AcademicAdviseBody h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.AcademicAdviseBody h3 {
+  color: var(--primary-color);
+  margin: 1.5rem 0 1rem;
+  font-size: 1.2rem;
+}
+
+.AcademicAdviseBody label,
+.AcademicAdviseBody p {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.AcademicQuestions > div {
+  margin-bottom: 1.5rem;
+}
+
+.EnterCourses > div,
+.FailedCourses > div {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.AcademicAdviseBody input[type="number"],
+.AcademicAdviseBody input[type="text"],
+#coursecode {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid var(--secondary-color);
+  transition: border 0.3s;
+}
+
+.AcademicAdviseBody input[type="number"]:focus,
+.AcademicAdviseBody input[type="text"]:focus,
+#coursecode:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+.carryoverQuestion {
+  background-color: var(--secondary-color);
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.carryoverQuestion p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.radio-group {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+button {
+  padding: 0.7rem 1rem;
+  background-color: var(--button-color);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #357ac7;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Secondary button style for "Add More" buttons */
+.EnterCourses button,
+.FailedCourses button:not(#formsubmitBtn) {
+  background-color: transparent;
+  border: 1px solid var(--button-color);
+  color: var(--button-color);
+  margin-top: 0.5rem;
+}
+.FailedCourses button {
+  width: 65%;
+}
+.EnterCourses button:hover,
+.FailedCourses button:not(#formsubmitBtn):hover {
+  background-color: var(--secondary-color);
+}
+
+#formsubmitBtn {
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.loader {
+  width: 25px;
+  height: 25px;
+  border: 4px solid #ffffff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 980px) {
+  .AcademicAdviseBody {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .AcademicAdviseBody h2 {
+    font-size: 1.5rem;
+  }
+
+  .EnterCourses > div,
+  .FailedCourses > div {
+    grid-template-columns: 1fr;
+  }
+
+  .radio-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  input[type="number"],
+  input[type="text"] {
+    font-size: 16px; /* Prevents zoom on mobile */
+  }
+  .FailedCourses button {
+    width: 100%;
+  }
+}
